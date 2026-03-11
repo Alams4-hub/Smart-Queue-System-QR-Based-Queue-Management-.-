@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Now Serving Display</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .label {
+            font-size: 40px;
+            margin-top: 50px;
+            color: #00ffcc;
+        }
+
+        .ticket-number {
+            font-size: 150px;
+            margin: 50px 0;
+            color: #00ffcc;
+        }
+
+        .next-up {
+            font-size: 30px;
+            margin-top: 20px;
+            color: #ffffffaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="label">NOW SERVING</div>
+    <div id="ticket" class="ticket-number">-</div>
+    <div class="next-up" id="next">NEXT UP: -</div>
+
+    <script>
+        const socket = new WebSocket("ws://127.0.0.1:8000/ws");
+
+        socket.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+
+            document.getElementById("ticket").innerText = data.serving;
+
+            if(data.next){
+                document.getElementById("next").innerText = "NEXT UP: " + data.next;
+            }
+        }
+    </script>
+</body>
+</html>
