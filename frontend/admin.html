@@ -1,33 +1,20 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-<title>Queue Admin Dashboard</title>
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="container">
+        <h1>Admin Queue Dashboard</h1>
+        <button class="admin-btn" onclick="nextCustomer()">Call Next Customer</button>
+        <h2 id="serving">Now Serving: -</h2>
 
-<div class="container">
+        <h3>Waiting Queue</h3>
+        <div id="queueList" class="queue-list"></div>
+    </div>
 
-<h1>Admin Queue Dashboard</h1>
-
-<button class="admin-btn" onclick="nextCustomer()">
-Call Next Customer
-</button>
-
-<h2 id="serving"></h2>
-
-<h3>Waiting Queue</h3>
-
-<div id="queueList" class="queue-list"></div>
-
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
