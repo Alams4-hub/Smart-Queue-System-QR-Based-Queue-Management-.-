@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+qrcode
+pillow
+
+
+
+
